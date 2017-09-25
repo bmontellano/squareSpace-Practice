@@ -7,6 +7,7 @@
     {.end}
     {squarespace-headers}
     <script>/* Must be below squarespace-headers */(function(){var touchTest="ontouchstart"in window||navigator.msMaxTouchPoints;if(!touchTest){with(document.documentElement){className=className.replace(new RegExp("touch-styles"),"")}}})()</script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
   </head>
   {.if template.mobileStylesEnabled}{.or}<!-- Mobile Styles Disabled -->{.end}
   <body id="{squarespace.page-id}" class="{squarespace.page-classes}{.section website}{.if logoImageUrl} logo-image{.end}{.end}{.section collection}{.equal? typeName "index"}{.section collections}{.section 0}{.equal? typeName "gallery"} has-banner-image{.end}{.equal? typeName "page"}{.main-image?} has-banner-image index-page{.end}{.end}{.end}{.end}{.or}{.main-image?} has-banner-image general-page{.end}{.end}{.end}{.if authorFilter} filter-author{.end}{.if tagFilter} filter-tag{.end}{.if categoryFilter} filter-category{.end}{.section collection} collection-{urlId|slugify}{.end}">
@@ -151,6 +152,27 @@
     <squarespace:script src="authenticated.js" combo="true" />
 
     {squarespace-footers}
+
+  <script>
+    var body = $('body').on('click', () => (console.log('you made jQuery work on squareSpace, YAY!!!')))
+    var thirdNavbtn = $('#mainNavigation div').children().eq(2)
+    thirdNavbtn.on('click', () => {
+ //ONLY IF YOU WANT SETTIMEOUT
+      // setTimeout( function(){ console.log("you've made setTimeout work, WHOOP!!")}, 3000);
+    console.log('3rd NAV BUTTON CLICKED') }  )
+
+  //CHANGE THE TEXT OF AN ITEM
+  // thirdNavbtn.text("I AM THE POWER!!!")
+
+
+
+  </script>
+
+  <style media="screen">
+    #home-section {
+      display:none;
+    }
+  </style>
 
   </body>
 </html>
